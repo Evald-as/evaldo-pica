@@ -1,7 +1,10 @@
-import { PostHog } from 'posthog-node'
 import { v4 as uuidv4 } from 'uuid'
-export default defineNuxtPlugin(async () => {
 
+interface PostHogResponse {
+    isPromotionEnabled: boolean
+}
+
+export default defineNuxtPlugin(async () => {
     const userId = useCookie('pica_user_id', {
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production',
@@ -40,28 +43,12 @@ export default defineNuxtPlugin(async () => {
         name.value = randomName
     }
 
-    const config = useRuntimeConfig();
-
-    const client = new PostHog(config.posthogApiKey, {
-        host: "https://eu.i.posthog.com",
-    });
-
-
-    client.identify({
-        distinctId: userId.value as string,
-        properties: {
-            city: city.value as string,
-            name: name.value as string,
-        },
-    });
-
-    console.log(userId.value, city.value, name.value);
-
-    const isPromotionEnabled = await client.isFeatureEnabled('show_promotion_siauliai', userId.value as string)
+    // Fetch feature flags from server route
+    const { data: posthogData } = await useFetch<PostHogResponse>(`/api/posthog?userId=${userId.value}`)
 
     return {
         provide: {
-            isPromotionEnabled: isPromotionEnabled
+            isPromotionEnabled: posthogData.value?.isPromotionEnabled ?? false
         }
     }
 })
