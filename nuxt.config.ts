@@ -6,10 +6,12 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
     '@nuxt/image',
     '@nuxt/ui-pro',
-    '@nuxthub/core',
   ],
   css: ['~/assets/css/main.css'],
   runtimeConfig: {
     posthogApiKey: process.env.POSTHOG_API_KEY,
+  },
+  nitro: {
+    preset: 'vercel',
   },
 })
