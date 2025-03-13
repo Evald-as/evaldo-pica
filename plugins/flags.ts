@@ -43,8 +43,7 @@ export default defineNuxtPlugin(async () => {
         name.value = randomName
     }
 
-    // Fetch feature flags from server route
-    const { data: posthogData } = await useFetch<PostHogResponse>(`/api/posthog?userId=${userId.value}`)
+    const { data: posthogData } = await useFetch<PostHogResponse>(`/api/posthog?userId=${userId.value}&city=${city.value}&name=${name.value}`)
 
     return {
         provide: {
