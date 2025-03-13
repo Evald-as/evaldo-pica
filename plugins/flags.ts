@@ -7,22 +7,16 @@ interface PostHogResponse {
 export default defineNuxtPlugin(async () => {
     console.log("flags plugin");
     const userId = useCookie('pica_user_id', {
-        httpOnly: true,
-        secure: process.env.NODE_ENV === 'production',
         sameSite: 'lax',
         maxAge: 60 * 60 * 24 * 365 // 1 year
     })
 
     const city = useCookie('pica_city', {
-        httpOnly: true,
-        secure: process.env.NODE_ENV === 'production',
         sameSite: 'lax',
         maxAge: 60 * 60 * 24 * 365 // 1 year
     })
 
     const name = useCookie('pica_name', {
-        httpOnly: true,
-        secure: process.env.NODE_ENV === 'production',
         sameSite: 'lax',
         maxAge: 60 * 60 * 24 * 365 // 1 year
     })
