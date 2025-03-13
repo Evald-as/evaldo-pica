@@ -4,7 +4,7 @@
       <h2 class="text-3xl font-bold text-center mb-12 text-yellow-500">
         Our Delicious Pizzas
       </h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:h-[1345px]">
         <div
           v-for="pizza in pizzas"
           :key="pizza.id"
@@ -42,42 +42,42 @@ const pizzas = [
     name: "Margherita Classic",
     description: "Fresh tomatoes, mozzarella, basil, and our signature sauce",
     price: 14.99,
-    image: "/images/pica.png",
+    image: "/images/pica1.png",
   },
   {
     id: 2,
     name: "Pepperoni Supreme",
     description: "Loaded with pepperoni, mozzarella, and special herbs",
     price: 16.99,
-    image: "/images/pica.png",
+    image: "/images/pica2.png",
   },
   {
     id: 3,
     name: "Vegetarian Delight",
     description: "Bell peppers, mushrooms, onions, olives, and fresh tomatoes",
     price: 15.99,
-    image: "/images/pica.png",
+    image: "/images/pica3.png",
   },
   {
     id: 4,
     name: "BBQ Chicken",
     description: "Grilled chicken, BBQ sauce, red onions, and cilantro",
     price: 17.99,
-    image: "/images/pica.png",
+    image: "/images/pica4.png",
   },
   {
     id: 5,
     name: "Hawaiian Paradise",
     description: "Ham, pineapple, and extra mozzarella cheese",
     price: 16.99,
-    image: "/images/pica.png",
+    image: "/images/pica5.png",
   },
   {
     id: 6,
     name: "Meat Lovers",
     description: "Pepperoni, sausage, bacon, and ground beef",
     price: 18.99,
-    image: "/images/pica.png",
+    image: "/images/pica6.png",
   },
 ];
 </script>
