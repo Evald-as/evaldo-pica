@@ -7,5 +7,6 @@
 </template>
 
 <script setup lang="ts">
+console.log("index page");
 const { $isPromotionEnabled } = useNuxtApp();
 </script>

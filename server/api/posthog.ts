@@ -11,8 +11,6 @@ export default defineEventHandler(async (event) => {
     const city = query.city as string
     const name = query.name as string
 
-    console.log(userId, city, name);
-
     client.identify({
         distinctId: userId,
         properties: {

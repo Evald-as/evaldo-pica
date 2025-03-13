@@ -5,6 +5,7 @@ interface PostHogResponse {
 }
 
 export default defineNuxtPlugin(async () => {
+    console.log("flags plugin");
     const userId = useCookie('pica_user_id', {
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production',
